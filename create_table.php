@@ -6,15 +6,21 @@ if($conn){
     $field1 = $_POST["field1"];
     $field2 = $_POST["field2"];
     $field3 = $_POST["field3"];
+    $field4 = $_POST["field4"];
+    $field5 = $_POST["field5"];
     $fld1Tp = $_POST["type1"];
     $fld2Tp = $_POST["type2"];
     $fld3Tp = $_POST["type3"];
+    $fld4Tp = $_POST["type4"];
+    $fld5Tp = $_POST["type5"];
     $name   = $_POST["table_name"];
 
     $sql = "CREATE TABLE " . $name . " ( "
         . $field1 . " " . $fld1Tp . " " . " PRIMARY KEY, "
         . $field2 . " " . $fld2Tp . ","
-        . $field3 . " " . $fld3Tp . ")";
+        . $field3 . " " . $fld3Tp . ","
+        . $field4 . " " . $fld4Tp . ","
+        . $field5 . " " . $fld5Tp . ")";
     $conn->query($sql);
     $conn->close();
     $html = "<h3>Se creó la tabla. De click en regresar 2 veces para ir al menú</h3>";

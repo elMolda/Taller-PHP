@@ -14,7 +14,21 @@ if($conn){
     mysqli_stmt_free_result($stmt);
     if(strcmp($contra,$rContra)==0){//pass valid
         if(strcmp($rRol,"adm")==0){//validate rol
-            
+            $sql = "SELECT nombreusuario FROM Usuarios WHERE rol = 'usr'";
+            $result = $conn->query($sql);
+            echo "<h4>Lista Usuarios</h4>";
+            $html = '<table border="1">';
+            $html.='<tr>';
+            $html.='<th>Nombre Usuario</th>';
+            $html.='</tr>';   
+            while($row = mysqli_fetch_array($result)) {                
+                $html.='<tr>';
+                $html.="<td>".$row['nombreusuario']."</td>";
+                $html.="</tr>";
+            }         
+            $html.="</table>";
+            echo $html;
+            mysqli_free_result($result);
         }else if(strcmp($rRol,"usr")==0){
             //show profile
             $stmt = $conn->prepare("SELECT * FROM Personas WHERE cedula = (SELECT cedula FROM Usuarios WHERE nombreusuario = ? )");
@@ -22,7 +36,7 @@ if($conn){
             $stmt->execute();
             $stmt->bind_result($rCedula,$rNombre,$rApellido,$rCorreo,$rEdad);
             $stmt->fetch();
-            echo "<h4>Perfil</h4><br></br>";
+            echo "<h4>Perfil</h4>";
             echo "Cedula: " . $rCedula . "<br></br>";
             echo "Nombre: " . $rNombre . "<br></br>";
             echo "Apellido: " . $rApellido . "<br></br>";

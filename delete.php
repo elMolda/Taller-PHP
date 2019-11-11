@@ -9,6 +9,6 @@ if($conn){
     $stmt->execute();
     echo "Se ha eliminado correctamente a " . $cedula;
 }else{
-
+    echo "No se conectó a DB";
 }
 ?>

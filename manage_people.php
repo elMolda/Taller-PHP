@@ -53,7 +53,7 @@ $conn = mysqli_connect(HOST_DB,USER_DB,USER_PASS,NAME_DB); //Connect to DB
     
     
     }else{
-        
+        echo "No se conectó a DB";
     }
 
 

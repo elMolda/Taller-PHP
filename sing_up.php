@@ -41,12 +41,12 @@ if($conn){
                 $sql = "UPDATE Usuarios SET rol = 'adm' WHERE cedula = ". $cedula;
                 $conn->query($sql);
                 echo "Registro exitoso admin";
-                echo '<br></br><form action="index.html"><input type="submit" value="Menú" /></form>'
+                echo '<br></br><form action="index.html"><input type="submit" value="Menú" /></form>';
             }else{
                 $sql = "UPDATE Usuarios SET rol = 'usr' WHERE cedula = ". $cedula;
                 $conn->query($sql);
                 echo "Registro exitoso usuario";
-                echo '<br></br><form action="index.html"><input type="submit" value="Menú" /></form>'
+                echo '<br></br><form action="index.html"><input type="submit" value="Menú" /></form>';
             }
         }
         

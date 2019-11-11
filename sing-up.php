@@ -27,7 +27,7 @@ if($conn){
                 $flag = TRUE; //Is first user
             }
         }
-        if($flag){//assing rol admin
+        if($flag){//assing rol adminn
             $sql = "UPDATE Usuarios SET rol = 'adm' WHERE cedula = ". $cedula;
             $conn->query($sql);
             echo "Registro exitoso admin";

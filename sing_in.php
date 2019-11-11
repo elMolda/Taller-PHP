@@ -14,7 +14,7 @@ if($conn){
     mysqli_stmt_free_result($stmt);
     if(strcmp($contra,$rContra)==0){//pass valid
         if(strcmp($rRol,"adm")==0){//validate rol
-            $sql = "SELECT nombreusuario FROM Usuarios WHERE rol = 'usr'";
+            $sql = "SELECT nombreusuario, id FROM Usuarios WHERE rol = 'usr'";
             $result = $conn->query($sql);
             echo "<h4>Lista Usuarios</h4>";
             $html = '<table border="1">';
@@ -23,7 +23,7 @@ if($conn){
             $html.='</tr>';   
             while($row = mysqli_fetch_array($result)) {                
                 $html.='<tr>';
-                $html.="<td>".$row['nombreusuario']."</td>";
+                $html.='<td><a href="edit_rol.php?id=' . $row["id"] .'">'.$row['nombreusuario']."</td>";
                 $html.="</tr>";
             }         
             $html.="</table>";

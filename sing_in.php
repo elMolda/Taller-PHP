@@ -23,7 +23,7 @@ if($conn){
             $html.='</tr>';   
             while($row = mysqli_fetch_array($result)) {                
                 $html.='<tr>';
-                $html.='<td><a href="edit_rol.php?id=' . $row["id"] .'">'.$row['nombreusuario']."</td>";
+                $html.='<td><a href="manage_people.html"'.$row['nombreusuario']."</td>";
                 $html.="</tr>";
             }         
             $html.="</table>";

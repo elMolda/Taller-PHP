@@ -23,32 +23,42 @@ $conn = mysqli_connect(HOST_DB,USER_DB,USER_PASS,NAME_DB); //Connect to DB
                 $stmt = $conn->prepare("UPDATE Personas SET nombre = ? WHERE cedula = ?");
                 $stmt->bind_param("si", $nombre, $cedula);
                 $stmt->execute();
-                echo "Se ha actualizado el nombre correctamente a " . $nombre;
+                $html = "<br></br><form action=\"index.html\">
+                <input type=\"submit\" value=\"Menú\"/></form>";
+                echo "Se ha actualizado el nombre correctamente a " . $nombre . $html;
             }
             if($apellido != ""){
                 $stmt = $conn->prepare("UPDATE Personas SET apellido = ? WHERE cedula = ?");
                 $stmt->bind_param("si", $apellido, $cedula);
                 $stmt->execute();
-                echo "Se ha actualizado el apellido correctamente a " . $apellido;
+                $html = "<br></br><form action=\"index.html\">
+                <input type=\"submit\" value=\"Menú\"/></form>";
+                echo "Se ha actualizado el apellido correctamente a " . $apellido . $html;
             }
             if($correo != ""){
                 $stmt = $conn->prepare("UPDATE Personas SET correo = ? WHERE cedula = ?");
                 $stmt->bind_param("si", $correo, $cedula);
                 $stmt->execute();
-                echo "Se ha actualizado el correo correctamente a " . $correo;
+                $html = "<br></br><form action=\"index.html\">
+                <input type=\"submit\" value=\"Menú\"/></form>";
+                echo "Se ha actualizado el correo correctamente a " . $correo . $html;
             }
             if($edad != ""){
                 $stmt = $conn->prepare("UPDATE Personas SET edad = ? WHERE cedula = ?");
                 $stmt->bind_param("ii", $edad, $cedula);
                 $stmt->execute();
-                echo "Se ha actualizado la edad correctamente a " . $edad;
+                $html = "<br></br><form action=\"index.html\">
+                <input type=\"submit\" value=\"Menú\"/></form>";
+                echo "Se ha actualizado la edad correctamente a " . $edad . $html;
             }
             
         }else{//Create 
             $stmt = $conn->prepare("INSERT INTO `Personas` (`cedula`, `nombre`, `apellido`, `correo`, `edad`) VALUES (?, ?, ?, ?, ?)");
             $stmt->bind_param("isssi", $cedula, $nombre, $apellido, $correo, $edad);
             $stmt->execute();
-            echo "Se ha insertado correctamente a " . $nombre . " " . $apellido;
+            $html = "<br></br><form action=\"index.html\">
+            <input type=\"submit\" value=\"Menú\"/></form>";
+            echo "Se ha insertado correctamente a " . $nombre . " " . $apellido . $html;
         }
     
     

@@ -23,7 +23,8 @@ if($conn){
         . $field5 . " " . $fld5Tp . ")";
     $conn->query($sql);
     $conn->close();
-    $html = "<h3>Se creó la tabla. De click en regresar 2 veces para ir al menú</h3>";
+    $html = "<h3>Se creó la tabla</h3>" . "<br></br><form action=\"index.html\">
+    <input type=\"submit\" value=\"Menú\"/></form>";
     echo $html;
 
 }else{

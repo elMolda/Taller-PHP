@@ -7,7 +7,9 @@ if($conn){
     $stmt = $conn->prepare("DELETE FROM Personas WHERE cedula = ?");
     $stmt->bind_param("i", $cedula);
     $stmt->execute();
-    echo "Se ha eliminado correctamente a " . $cedula;
+    $html = "<br></br><form action=\"index.html\">
+    <input type=\"submit\" value=\"Menú\"/></form>";
+    echo "Se ha eliminado correctamente a " . $cedula . $html;
 }else{
     echo "No se conectó a DB";
 }
